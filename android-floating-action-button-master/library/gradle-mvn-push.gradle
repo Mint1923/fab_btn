@@ -1,5 +1,6 @@
 
- apply plugin: 'maven'
+
+apply plugin: 'maven'
 apply plugin: 'signing'
 
 def isReleaseBuild() {
@@ -8,7 +9,7 @@ def isReleaseBuild() {
 
 def getReleaseRepositoryUrl() {
     return hasProperty('RELEASE_REPOSITORY_URL') ? RELEASE_REPOSITORY_URL
-            : "https://www.kik.com"
+            : "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
 }
 
 def getSnapshotRepositoryUrl() {
@@ -65,6 +66,7 @@ afterEvaluate { project ->
                         developer {
                             id POM_DEVELOPER_ID
                             name POM_DEVELOPER_NAME
+                            email POM_DEVELOPER_EMAIL
                         }
                     }
                 }
